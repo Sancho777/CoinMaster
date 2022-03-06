@@ -1,0 +1,53 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Criar uma Nova Conta 
+{% endblock %} 
+
+{% block content %}
+
+<div>
+    {% if not form.is_valid %}
+    <div class="mx-auto">
+        <br>
+        <h1 class="product_title text-center">
+            Criar uma nova conta       
+        </h1>
+        <br>
+        <div class="col-9 col-sm-9 col-md-6 col-lg-5 mx-auto bg-light">
+            <br>
+            <p>
+                Preencha os seus dados para criar uma nova conta
+            </p>
+            <form method="post">
+                {% csrf_token %}
+                <p>{{ form | crispy }}</p>
+                <button type="submit" name="button" class="btn btn-secondary">Enviar</button>
+            </form>
+            <br>
+        </div>
+    </div>
+    {% else %}
+    <div class="mx-auto">
+        <br>
+        <h1 class="product_title text-center">
+            Sua conta foi criada com Sucesso! 
+        </h1>
+        <br>
+        <div class="container">
+            <p>
+                Caro Usuário, 
+                <br>
+                <br>
+                Sua conta foi criada e está pronta para ser usada. <br>
+                <a href="{% url 'home' %}">Volte para os Indicadores</a> e acompanhe o mercado! 
+            </p>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+<br>
+
+
+{% endblock %}
