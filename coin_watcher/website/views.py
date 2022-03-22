@@ -7,13 +7,36 @@ from .forms import SignupForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 
+from django.http import HttpResponse
+import datetime
+from indicador1 import startup1
+
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
+
+
+def teste():
+    catu = datetime.datetime.now()
+    return catu
+
 
 def home(request):
-    return render(request, 'home.html')
+
+    context = {}
+    context['summertime'] = startup1()
+
+    return render(request, 'home.html', context)
 
 
 def aboutPage(request):
     return render(request, 'about.html')
+
+
+def indicatorPage(request):
+    return render(request, 'indicador.html')
 
 # Create your views here.
 

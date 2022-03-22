@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} Indicadores 
+{% endblock %} 
+{% block content %}
+<div class="container py-5">
+  <div class="row mt-5">
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <img src="{% static 'img/product-2.png' %}" alt="">
+    </div>
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <div>
+        <h1 class="product_title">Produto</h1>
+        <h5 class="text-info font-italic mb-3">
+          <span class="mr-1">$</span> R$349,00
+        </h5>
+        <p class="product_description">Product Description</p>
+        <p class="text-justify product_text">Descrição</p>
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}
